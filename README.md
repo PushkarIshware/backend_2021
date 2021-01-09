@@ -1,1 +1,53 @@
 # backend_2021
+
+Generate SSH keys:
+- ssh-keygen
+
+Check Private SSH Key:
+- cat .ssh/id_rsa
+
+Check Public SSH Key:
+- cat id_rsa.pub
+
+Give permission to certain folder:
+- sudo chown -R $USER:$USER .
+
+Install Docker and docker-compose:
+- sudo apt  install docker.io
+
+    For DOCKER-COMPOSE:
+        Install pip3:
+            sudo apt install python3-pip
+        sudo pip3 install docker-compose
+
+
+Show your branch name on your terminal:
+
+- gedit  ~/.bashrc
+
+Add below code
+```
+# Show git branch name
+force_color_prompt=yes
+color_prompt=yes
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+fi
+unset color_prompt force_color_prompt
+```
+
+Reload the .bashrc file:
+- source ~/.bashrc
+
+
+ERROR_FIX:
+
+- docker.errors.DockerException: Error while fetching server API version
+
+    - sudo gpasswd -a $USER docker
+    - newgrp docker
