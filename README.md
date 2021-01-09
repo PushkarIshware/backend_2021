@@ -51,3 +51,19 @@ ERROR_FIX:
 
     - sudo gpasswd -a $USER docker
     - newgrp docker
+
+
+- Start Django project:
+    
+    -  sudo docker-compose run backend_service django-admin startproject backend . [NOTE: `backend_service` is service name from Dockerfile]
+
+
+- Check Docker container related info:
+    ```CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES```
+    - docker ps
+
+
+- Create new app using docker:
+
+    - docker exec backend_2021_backend_service_1 python3 manage.py startapp <app_name>
+            - NOTE: backend_2021_backend_service_1 is NAME from `docker ps` command.
