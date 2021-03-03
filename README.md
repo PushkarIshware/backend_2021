@@ -67,3 +67,6 @@ ERROR_FIX:
 
     - docker exec backend_2021_backend_service_1 python3 manage.py startapp <app_name>
             - NOTE: backend_2021_backend_service_1 is NAME from `docker ps` command.
+
+- Create superuser for django admin panel:
+    - docker exec -it <dockercontainerid> python manage.py createsuperuser
