@@ -70,3 +70,34 @@ ERROR_FIX:
 
 - Create superuser for django admin panel:
     - docker exec -it <dockercontainerid> python manage.py createsuperuser
+
+
+- Create `.env` folder in `backend_2021 and create following txt files:
+
+    -   django.env
+            
+```
+SECRET_KEY=FirstProjectSecrit
+DEBUG=1
+ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+
+
+# Environment Variable which is used in setting.py in django
+# setting.py file to configure the database connection for
+# application
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=postgres
+SQL_USER=postgres
+SQL_PASSWORD=postgres
+SQL_HOST=db
+SQL_PORT=5432
+```
+
+    -   posgresql.env
+
+
+```
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+```
